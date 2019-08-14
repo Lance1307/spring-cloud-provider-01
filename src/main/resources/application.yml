@@ -1,8 +1,16 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+    instance:
+      instance-id: spring-cloud-provider
+
 spring:
   application:
-    name: spring-cloud-provider-01
-  profiles:
-    active: local
+    name: spring-cloud-provider
   jpa:
     generate-ddl: true
     show-sql: true
@@ -15,19 +23,21 @@ spring:
     url: jdbc:mysql://localhost:3306/pds2_longfor
     username: root
     password: 123456
-  #配置日志
-  logging:
-    pattern:
-      console: level-%level %msg%n
-    #日志的显示级别
-    level:
-      root: info
-      org.hibernate: info
-      # 在show-sql为true时显示sql中的动态参数
-      org.hibernate,type,desciptor.sql.BasicBinder: trace
-      org.hibernate,type,desciptor.sql.BasicExtractor: trace
-      com.abc.msg: debug
+#配置日志
+logging:
+  pattern:
+    console: level-%level %msg%n
+  #日志的显示级别
+  level:
+    root: info
+    org.hibernate: info
+    # 在show-sql为true时显示sql中的动态参数
+    org.hibernate,type,desciptor.sql.BasicBinder: trace
+    org.hibernate,type,desciptor.sql.BasicExtractor: trace
+    com.abc.msg: debug
+  info:
+    auth: Tom
+    app.name: abcmsc
+    app.desc: This is a msg of ABC Comany
 
-server:
-  port: 8081
 
